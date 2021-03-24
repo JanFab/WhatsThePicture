@@ -13,9 +13,9 @@ public class TileField {
         this.colCount = colCount;
         this.pictureName = pictureName;
         this.tiles = new Tile[rowCount][colCount];
-        generate();
         this.openTiles = 0;
         this.state = FieldState.PLAYING;
+        generate();
     }
 
     public void generate() {
@@ -31,7 +31,7 @@ public class TileField {
         if (!tile.isOpen()) {
             tile.setOpen(true);
             this.openTiles++;
-            if (this.openTiles >= this.rowCount * this.colCount && this.state != FieldState.SOLVED) {
+            if (this.openTiles >= this.rowCount * this.colCount && this.state != FieldState.SOLVED || this.getScore() <= 0) {
                 this.state = FieldState.FAILED;
             }
         }
@@ -44,6 +44,10 @@ public class TileField {
         } else {
             return false;
         }
+    }
+
+    public int getScore() {
+        return rowCount * colCount * 10 - openTiles * 5;
     }
 
     public int getRowCount() {

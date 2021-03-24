@@ -3,7 +3,6 @@ package sk.tuke.gamestudio.service;
 import sk.tuke.gamestudio.entity.Score;
 
 import java.sql.*;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 

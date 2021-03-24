@@ -1,19 +1,16 @@
 package sk.tuke.gamestudio.service;
 
 import sk.tuke.gamestudio.entity.Rating;
-import sk.tuke.gamestudio.entity.Score;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RatingServiceJDBC implements RatingService {
     public static final String URL = "jdbc:postgresql://localhost/gamestudio";
     public static final String USER = "postgres";
     public static final String PASSWORD = "postgres";
 
-    public static final String SELECT = "SELECT rating FROM rating WHERE game = ? player = ?";
-    public static final String SELECT_AVERAGE = "SELECT AVG(rating), FROM rating WHERE game = ?";
+    public static final String SELECT = "SELECT rating FROM rating WHERE game = ? AND player = ?";
+    public static final String SELECT_AVERAGE = "SELECT AVG(rating) FROM rating WHERE game = ?";
     public static final String DELETE = "DELETE FROM rating";
     public static final String INSERT = "INSERT INTO rating (game, player, rating, ratedon) VALUES (?, ?, ?, ?) ON CONFLICT (player, game) DO UPDATE set rating=?, ratedon=?";
 
