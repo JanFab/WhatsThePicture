@@ -13,25 +13,36 @@ public class TileField {
         this.colCount = colCount;
         this.pictureName = pictureName;
         this.tiles = new Tile[rowCount][colCount];
-
+        generate();
         this.openTiles = 0;
         this.state = FieldState.PLAYING;
     }
 
-    public void openTile(int row, int column){
+    public void generate() {
+        for (int rows = 0; rows < this.rowCount; rows++) {
+            for (int cols = 0; cols < this.colCount; cols++) {
+                this.tiles[rows][cols] = new Tile(false);
+            }
+        }
+    }
+
+    public void openTile(int row, int column) {
         Tile tile = tiles[row][column];
-        if(!tile.isOpen()){
+        if (!tile.isOpen()) {
             tile.setOpen(true);
             this.openTiles++;
-            if(this.openTiles == row*column){
+            if (this.openTiles >= this.rowCount * this.colCount && this.state != FieldState.SOLVED) {
                 this.state = FieldState.FAILED;
             }
         }
     }
 
-    public void guessPictureName(String name){
-        if(name.equals(pictureName)){
+    public boolean guessPictureName(String name) {
+        if (name.equals(this.pictureName)) {
             this.state = FieldState.SOLVED;
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -51,8 +62,8 @@ public class TileField {
         return pictureName;
     }
 
-    public Tile[][] getTiles() {
-        return tiles;
+    public Tile getTile(int row, int col) {
+        return tiles[row][col];
     }
 
     public FieldState getState() {
