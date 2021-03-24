@@ -1,4 +1,4 @@
-package sk.tuke.gamestudio.game.guessthepicture;
+package sk.tuke.gamestudio;
 
 import sk.tuke.gamestudio.game.guessthepicture.consoleui.ConsoleUI;
 
