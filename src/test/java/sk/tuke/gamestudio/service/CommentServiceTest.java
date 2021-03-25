@@ -19,12 +19,12 @@ public class CommentServiceTest {
         CommentService service = createService();
         service.reset();
         Date date = new Date();
-        service.addComment(new Comment("guess", "Jaro", "Bardzo dobra hra!", date));
+        service.addComment(new Comment("GuessThePicture", "Jaro", "Bardzo dobra hra!", date));
 
-        List<Comment> comments = service.getComments("guess");
+        List<Comment> comments = service.getComments("GuessThePicture");
 
         assertEquals(1, comments.size());
-        assertEquals("guess", comments.get(0).getGame());
+        assertEquals("GuessThePicture", comments.get(0).getGame());
         assertEquals("Jaro", comments.get(0).getPlayer());
         assertEquals("Bardzo dobra hra!", comments.get(0).getComment());
         assertEquals(date, comments.get(0).getCommentedOn());
@@ -34,12 +34,12 @@ public class CommentServiceTest {
     public void testGetComments() {
         CommentService service = createService();
         service.reset();
-        service.addComment(new Comment("guess", "Jaro", "Bardzo dobra hra!", new Date()));
-        service.addComment(new Comment("guess", "Jaro", "Bardzo dobra hra!", new Date()));
-        service.addComment(new Comment("guess", "Jaro", "Bardzo dobra hra!", new Date()));
-        service.addComment(new Comment("guess", "Jaro", "Bardzo dobra hra!", new Date()));
+        service.addComment(new Comment("GuessThePicture", "Jaro", "Bardzo dobra hra!", new Date()));
+        service.addComment(new Comment("GuessThePicture", "Jaro", "Bardzo dobra hra!", new Date()));
+        service.addComment(new Comment("GuessThePicture", "Jaro", "Bardzo dobra hra!", new Date()));
+        service.addComment(new Comment("GuessThePicture", "Jaro", "Bardzo dobra hra!", new Date()));
 
-        List<Comment> comments = service.getComments("guess");
+        List<Comment> comments = service.getComments("GuessThePicture");
         assertEquals(4, comments.size());
     }
 

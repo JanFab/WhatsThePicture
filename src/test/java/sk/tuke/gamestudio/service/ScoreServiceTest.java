@@ -22,12 +22,12 @@ public class ScoreServiceTest {
         ScoreService service = createService();
         service.reset();
         Date date = new Date();
-        service.addScore(new Score("mines", "Jaro", 200, date));
+        service.addScore(new Score("GuessThePicture", "Jaro", 200, date));
 
-        List<Score> scores = service.getTopScores("mines");
+        List<Score> scores = service.getTopScores("GuessThePicture");
 
         assertEquals(1, scores.size());
-        assertEquals("mines", scores.get(0).getGame());
+        assertEquals("GuessThePicture", scores.get(0).getGame());
         assertEquals("Jaro", scores.get(0).getPlayer());
         assertEquals(200, scores.get(0).getPoints());
         assertEquals(date, scores.get(0).getPlayedOn());
@@ -37,7 +37,7 @@ public class ScoreServiceTest {
     public void testReset() {
         ScoreService service = createService();
         service.reset();
-        assertEquals(0, service.getTopScores("mines").size());
+        assertEquals(0, service.getTopScores("GuessThePicture").size());
     }
 
     @Test
@@ -45,25 +45,25 @@ public class ScoreServiceTest {
         ScoreService service = createService();
         service.reset();
         Date date = new Date();
-        service.addScore(new Score("mines", "Jaro", 200, date));
-        service.addScore(new Score("mines", "Fero", 400, date));
-        service.addScore(new Score("mines", "Jozo", 100, date));
+        service.addScore(new Score("GuessThePicture", "Jaro", 200, date));
+        service.addScore(new Score("GuessThePicture", "Fero", 400, date));
+        service.addScore(new Score("GuessThePicture", "Jozo", 100, date));
 
-        List<Score> scores = service.getTopScores("mines");
+        List<Score> scores = service.getTopScores("GuessThePicture");
 
         assertEquals(3, scores.size());
 
-        assertEquals("mines", scores.get(0).getGame());
+        assertEquals("GuessThePicture", scores.get(0).getGame());
         assertEquals("Fero", scores.get(0).getPlayer());
         assertEquals(400, scores.get(0).getPoints());
         assertEquals(date, scores.get(0).getPlayedOn());
 
-        assertEquals("mines", scores.get(1).getGame());
+        assertEquals("GuessThePicture", scores.get(1).getGame());
         assertEquals("Jaro", scores.get(1).getPlayer());
         assertEquals(200, scores.get(1).getPoints());
         assertEquals(date, scores.get(1).getPlayedOn());
 
-        assertEquals("mines", scores.get(2).getGame());
+        assertEquals("GuessThePicture", scores.get(2).getGame());
         assertEquals("Jozo", scores.get(2).getPlayer());
         assertEquals(100, scores.get(2).getPoints());
         assertEquals(date, scores.get(2).getPlayedOn());
@@ -73,18 +73,18 @@ public class ScoreServiceTest {
     public void testAddScore10() {
         ScoreService service = createService();
         for (int i = 0; i < 20; i++)
-            service.addScore(new Score("mines", "Jaro", 200, new Date()));
-        assertEquals(10, service.getTopScores("mines").size());
+            service.addScore(new Score("GuessThePicture", "Jaro", 200, new Date()));
+        assertEquals(10, service.getTopScores("GuessThePicture").size());
     }
 
     @Test
     public void testPersistance() {
         ScoreService service = createService();
         service.reset();
-        service.addScore(new Score("mines", "Jaro", 200, new Date()));
+        service.addScore(new Score("GuessThePicture", "Jaro", 200, new Date()));
 
         service = createService();
-        assertEquals(1, service.getTopScores("mines").size());
+        assertEquals(1, service.getTopScores("GuessThePicture").size());
     }
 }
 

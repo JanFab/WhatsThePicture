@@ -19,9 +19,9 @@ public class RatingServiceTest {
         RatingService service = createService();
         service.reset();
         Date date = new Date();
-        service.setRating(new Rating("guess", "Jaro", 2, date));
+        service.setRating(new Rating("GuessThePicture", "Jaro", 2, date));
 
-        int rating = service.getRating("guess", "Jaro");
+        int rating = service.getRating("GuessThePicture", "Jaro");
 
         assertEquals(2, rating);
     }
@@ -32,11 +32,11 @@ public class RatingServiceTest {
         service.reset();
 
         Date date = new Date();
-        service.setRating(new Rating("guess", "Jaro", 2, date));
-        service.setRating(new Rating("guess", "Fero", 3, date));
-        service.setRating(new Rating("guess", "Miro", 4, date));
+        service.setRating(new Rating("GuessThePicture", "Jaro", 2, date));
+        service.setRating(new Rating("GuessThePicture", "Fero", 3, date));
+        service.setRating(new Rating("GuessThePicture", "Miro", 4, date));
 
-        int averageRating = service.getAverageRating("guess");
+        int averageRating = service.getAverageRating("GuessThePicture");
 
         assertEquals(3, averageRating);
     }
@@ -47,9 +47,9 @@ public class RatingServiceTest {
         service.reset();
 
         Date date = new Date();
-        service.setRating(new Rating("guess", "Jaro", 2, date));
+        service.setRating(new Rating("GuessThePicture", "Jaro", 2, date));
 
-        assertEquals(2, service.getRating("guess", "Jaro"));
+        assertEquals(2, service.getRating("GuessThePicture", "Jaro"));
     }
 
 }

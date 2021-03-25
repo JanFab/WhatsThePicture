@@ -69,6 +69,7 @@ public class ConsoleUI {
     }
 
     private void renderField() {
+        System.out.println();
         System.out.println(ANSI_BLUE + "Player: " + ANSI_WHITE + playerName + ANSI_BLUE + " Score: " + ANSI_WHITE + tileField.getScore());
         System.out.print(ANSI_WHITE + "Guess the word: " + ANSI_RED);
 
@@ -104,7 +105,6 @@ public class ConsoleUI {
             }
             System.out.println();
         }
-        System.out.println();
     }
 
     private void outro() {
@@ -222,7 +222,11 @@ public class ConsoleUI {
     private void addRating() {
         do {
             System.out.print(ANSI_PURPLE + "Give rating (1 = the worst, 5 = the best): ");
-            playerRating = Integer.parseInt(scanner.nextLine());
+            while (!scanner.hasNextInt()) {
+                System.out.print(ANSI_RED + "Only numbers are accepted! Enter again: ");
+                scanner.next();
+            }
+            playerRating = scanner.nextInt();
         } while (playerRating > 5 || playerRating < 0);
         ratingService.setRating(new Rating(GAME_NAME, playerName, playerRating, new Date()));
     }
@@ -255,6 +259,7 @@ public class ConsoleUI {
     private void gameResult() {
         if (tileField.getState() == FieldState.SOLVED) {
             for (int row = 0; row < tileField.getRowCount(); row++) {
+                System.out.print("  ");
                 for (int col = 0; col < tileField.getColCount(); col++) {
                     for (int i = 0; i < colWidth; i++) {
                         System.out.print(ANSI_BLUE + asciiString.charAt(col * colWidth + i + row * this.tileField.getColCount() * colWidth) + ANSI_WHITE);
