@@ -1,0 +1,10 @@
+POST http://localhost:8080/api/score
+Content-Type: application/json
+
+{
+  "game": "guessThePicture",
+  "player": "jano",
+  "points": 100,
+  "playedOn": "2021-03-24T12:40:33"
+}
+

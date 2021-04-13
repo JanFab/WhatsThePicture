@@ -1,5 +1,6 @@
 package sk.tuke.gamestudio.game.guessthepicture.consoleui;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import sk.tuke.gamestudio.entity.Comment;
 import sk.tuke.gamestudio.entity.Rating;
 import sk.tuke.gamestudio.entity.Score;
@@ -37,9 +38,18 @@ public class ConsoleUI {
     private String playerComment;
     private int playerRating;
 
-    private ScoreService scoreService = new ScoreServiceJDBC();
-    private CommentService commentService = new CommentServiceJDBC();
-    private RatingService ratingService = new RatingServiceJDBC();
+//    private ScoreService scoreService = new ScoreServiceJDBC();
+//    private CommentService commentService = new CommentServiceJDBC();
+//    private RatingService ratingService = new RatingServiceJDBC();
+
+    @Autowired
+    private ScoreService scoreService;
+    @Autowired
+    private CommentService commentService;
+    @Autowired
+    private RatingService ratingService;
+
+
 
     public void play() {
         intro();

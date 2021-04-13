@@ -21,7 +21,7 @@ public class RatingServiceTest {
         Date date = new Date();
         service.setRating(new Rating("GuessThePicture", "Jaro", 2, date));
 
-        int rating = service.getRating("GuessThePicture", "Jaro");
+        double rating = service.getRating("GuessThePicture", "Jaro");
 
         assertEquals(2, rating);
     }
@@ -36,7 +36,7 @@ public class RatingServiceTest {
         service.setRating(new Rating("GuessThePicture", "Fero", 3, date));
         service.setRating(new Rating("GuessThePicture", "Miro", 4, date));
 
-        int averageRating = service.getAverageRating("GuessThePicture");
+        double averageRating = service.getAverageRating("GuessThePicture");
 
         assertEquals(3, averageRating);
     }
