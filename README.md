@@ -1,5 +1,6 @@
 Link na prezentacne video:
-https://tukesk-my.sharepoint.com/:v:/g/personal/jan_fabian_student_tuke_sk/EcJbQ9y9TRJBi_mdwAQuVAYB6wgRd37cEUiJ-Oefq3HpUQ?e=ge10FR
+
+https://tukesk-my.sharepoint.com/:v:/g/personal/jan_fabian_student_tuke_sk/EcQNXFAMvUxEooJ4dwgO2doBbuAoboBMKb3u0RQbJjJR4g?e=vS2uO5
 
 Jan Fabian
 jan.fabian@student.tuke.sk

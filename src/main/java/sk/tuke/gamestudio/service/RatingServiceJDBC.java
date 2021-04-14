@@ -49,7 +49,7 @@ public class RatingServiceJDBC implements RatingService {
     }
 
     @Override
-    public double getRating(String game, String player) throws RatingException {
+    public int getRating(String game, String player) throws RatingException {
         try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement statement = connection.prepareStatement(SELECT)
         ) {

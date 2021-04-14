@@ -1,10 +1,53 @@
+
+//add score for xxxxxxxxx
 POST http://localhost:8080/api/score
 Content-Type: application/json
 
 {
-  "game": "guessThePicture",
-  "player": "jano",
-  "points": 100,
-  "playedOn": "2021-03-24T12:40:33"
+  "game": "GuessThePicture",
+  "player": "xxxxxxxx",
+  "points": 888,
+  "playedOn": "2021-03-22T12:40:33"
 }
+###
+
+//add comment for Pato
+POST http://localhost:8080/api/comment
+Content-Type: application/json
+
+{
+  "game": "GuessThePicture",
+  "player": "ujoo",
+  "comment": "Dost dziva hra to bola. Toto pisem do .http moreee",
+  "commentedOn": "2021-03-29T12:40:33"
+}
+###
+
+//set rating for Jozo
+POST http://localhost:8080/api/rating
+Content-Type: application/json
+
+{
+  "game": "GuessThePicture",
+  "player": "julia",
+  "rating": 2,
+  "ratedOn": "2021-03-24T12:40:33"
+}
+###
+
+//get scores
+GET http://localhost:8080/api/score/GuessThePicture
+###
+
+//get rating
+GET http://localhost:8080/api/rating/GuessThePicture/maria
+###
+
+//get average rating
+GET http://localhost:8080/api/rating/GuessThePicture
+
+
+###
+//get comments
+GET http://localhost:8080/api/comment/GuessThePicture
 
