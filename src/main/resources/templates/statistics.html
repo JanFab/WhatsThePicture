@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamestudio</title>
+    <link rel="stylesheet" href="/css/stylesheet.css"/>
+</head>
+<body>
+<!--/*@thymesVar id="userController" type="sk.tuke.gamestudio.server.controller.UserController"*/-->
+
+<div th:replace="fragments::header"/>
+<div class="statContainer">
+    <h2>Scores</h2>
+    <!--<span th:utext="${@scoreService.getTopScores('mines')}"/>-->
+    <h3>Best players among the game</h3>
+    <table id="serverSideScoreTable" class="center">
+        <thead>
+        <tr>
+            <th>Player</th>
+            <th>Points</th>
+            <th>Played at</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="score: ${scores}">
+            <td th:text="${score.player}"></td>
+            <td th:text="${score.points}"></td>
+            <td th:text="${score.playedOn}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="statContainer">
+    <h2>Comments</h2>
+    <table id="serverSideCommentTable" class="center">
+        <thead>
+        <tr>
+            <th>Player</th>
+            <th>Comment</th>
+            <th>Commented at</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cmmt: ${comments}">
+            <td th:text="${cmmt.player}"></td>
+            <td th:text="${cmmt.comment}"></td>
+            <td th:text="${cmmt.commentedOn}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <span th:if="${@userController.logged}">
+<form action="/GuessThePicture/comment" method="post">
+    Your comment: <input type="text" name="comment" required/><br/>
+    <input type="submit"/>
+</form>
+</span>
+</div>
+
+<div class="statContainer">
+    <h2>Rating</h2>
+    <h3>Average rating of this game:</h3>
+    <p th:text="${rating}"></p>
+
+
+    <span th:if="${@userController.logged}">
+    <h3>My rating of this game:</h3>
+    <span th:if="not ${personalRating == -1}">
+        <p th:text="${personalRating}"></p>
+    </span>
+    <span th:if="${personalRating  == -1}">
+        <p>Not rated yet... Fill the form please</p>
+    </span>
+</span>
+
+    <span th:if="${@userController.logged}">
+    <h3>Add rating to this game:</h3>
+<form action="/GuessThePicture/rate" method="post">
+    Rate the game (1 for bad 5 for excellent): <input type="number" min="1" max="5" name="rating" required><br/>
+    <input type="submit"/>
+</form>
+</span>
+</div>
+
+<div class="backToGame">
+    <a class="backToGameLink" href="/GuessThePicture"> Back To Game</a>
+</div>
+
+<div th:replace="fragments::footer"/>
+</body>
+</html>

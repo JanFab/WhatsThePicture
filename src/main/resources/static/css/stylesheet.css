@@ -1,0 +1,207 @@
+
+body {
+    color: aliceblue;
+    background-color: black;
+    text-align: center;
+
+    background-image: url("../images/saturn.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+body > * {
+    backdrop-filter: blur(8px) brightness(30%);
+    border: 3px solid #f1f1f1;
+    margin: 2% 5%;
+    width: 90%;
+}
+
+.headerBar {
+    background-color: dimgray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-top: 0;
+    height: 3em;
+    width: 100%;
+
+}
+
+/*navbar*/
+.hbHome {
+    display: block;
+    background-color: rgb(49, 49, 49);
+    font-size: 35px;
+    font-family: "American Typewriter";
+    color: darkorange;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: center;
+    transition: 0.3s;
+    width: 20%;
+}
+
+.hbHome:hover {
+    background-color: darkorange;
+    color: white;
+}
+
+.hbForm {
+    display: block;
+    justify-content: right;
+    font-size: 20px;
+}
+
+/*guess Formular*/
+.guessFrm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: dimgray;
+}
+
+.guessFrm > * {
+    width: auto;
+}
+
+input[name="guess"] {
+    background: grey;
+    font-family: Courier, serif;
+    color: aliceblue;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    width: 50%;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    background-color: gray;
+    table-layout: fixed;
+
+}
+.controls > a {
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    color: darkorange;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.center > thead{
+    color: darkorange;
+}
+
+.statContainer > h2{
+    font-family: Courier, serif;
+    font-weight: bold;
+    color: burlywood;
+}
+
+.backToGame{
+ height: 2em;
+}
+
+.backToGameLink{
+    display: block;
+    background-color: rgb(49, 49, 49);
+    font-size: 1.8em;
+    font-family: "American Typewriter";
+    color: darkorange;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: center;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.backToGameLink:hover{
+    background-color: saddlebrown;
+    color: white;
+}
+
+.indexContainer{
+    height: 80vh;
+}
+.indexContainer > ul > li{
+    margin: 1em;
+}
+
+.indexContainer > ul > li > a{
+    font-family: "Kohinoor Bangla";
+    font-size: large;
+    font-weight: bold;
+    color: darkorange;
+
+    display: block;
+    backdrop-filter: brightness(50%);
+    text-decoration: none;
+    text-align: center;
+    vertical-align: center;
+    transition: 0.3s;
+    height: 2em;
+    width: 90%;
+    border: darkorange solid 2px;
+}
+
+.indexContainer > ul > li > a:hover{
+    background-color: saddlebrown;
+    color: white;
+}
+
+#footer {
+    display: block;
+    position: relative;
+    bottom: 0;
+}
+
+#logout{
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    height: 100%;
+    background-color: red;
+}
+
+/*Play field*/
+.tableField {
+    margin: auto;
+    width: 30em;
+    height: 30em;
+    background-size: cover;
+    background-position: center;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.tableRow {
+    height: 20%;
+}
+
+.tableData {
+    padding: 0;
+}
+
+.tableData-link {
+    background-color: rgb(29, 29, 29);
+}
+
+.tableData-image {
+    background-color: rgb(29, 29, 29);
+    max-height: 100%;
+    max-width: 100%;
+}

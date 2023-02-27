@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/comment")
 public class CommentServiceRest {
+
     @Autowired
     private CommentService commentService;
 
@@ -23,6 +24,4 @@ public class CommentServiceRest {
     public void addComment(@RequestBody Comment comment) {
         commentService.addComment(comment);
     }
-
-
 }

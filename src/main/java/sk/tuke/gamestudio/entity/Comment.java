@@ -1,6 +1,5 @@
 package sk.tuke.gamestudio.entity;
 
-
 import javax.persistence.*;
 import java.util.Date;
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GuessThePicture</title>
+    <link rel="stylesheet" href="/css/stylesheet.css"/>
+</head>
+
+<body>
+<!--/*@thymesVar id="message" type="java.lang.String"*/-->
+<!--/*@thymesVar id="scores" type="java.util.List<sk.tuke.gamestudio.entity.Score>"*/-->
+<!--/*@thymesVar id="comments" type="java.util.List<sk.tuke.gamestudio.entity.Comment>"*/-->
+<div th:replace="fragments::header"/>
+
+<h1>GuessThePicture</h1>
+<div>
+    <h2>Stav hry: <span th:text="${gamestate}"/><br></h2>
+    <h3>Skore: <span th:text="${currentScore}"/></h3>
+</div>
+
+<div th:utext="${field}"></div>
+
+<form class="guessFrm" action="/GuessThePicture/guess" method="post">
+    <h3>Your guess:</h3>
+    <input type="text" name="guess"/><br/>
+    <input type="submit"/>
+</form>
+
+<div class="controls">
+    <a href="/GuessThePicture/statistics">Statistics</a>
+    <a href="/GuessThePicture/new">New Game</a>
+    <form id="difficulty" class="difficulty" action="/GuessThePicture/difficulty" method="post">
+        <select name="difficulty" onchange="this.form.submit()">
+            <option value="0">choose Difficulty</option>
+            <option value="1">Easy</option>
+            <option value="2">Medium</option>
+            <option value="3">Hard</option>
+        </select>
+    </form>
+</div>
+
+
+<div th:replace="fragments::footer"/>
+</body>
+</html>

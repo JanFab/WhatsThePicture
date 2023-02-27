@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamestudio</title>
+    <link rel="stylesheet" href="/css/stylesheet.css"/>
+</head>
+<body>
+<!--/*@thymesVar id="userController" type="sk.tuke.gamestudio.server.controller.UserController"*/-->
+<div th:replace="fragments::header"/>
+
+<div class="indexContainer">
+    <h2>Our favorite games</h2>
+    <h4>Welcome to gamestudio! Realax and enjoy our best games from talented developers. Thanks for coming, we hope you
+        will like it</h4>
+    <ul>
+        <li><a href="/GuessThePicture">Guess the picture!</a></li>
+        <li><a>Pexeso - Coming soon...</a></li>
+        <li><a>Tetris - Coming soon...</a></li>
+        <li><a>Sudoku - Coming soon...</a></li>
+        <li><a>World simulator - Coming soon...</a></li>
+    </ul>
+</div>
+<div th:replace="fragments::footer"/>
+</body>
+</html>

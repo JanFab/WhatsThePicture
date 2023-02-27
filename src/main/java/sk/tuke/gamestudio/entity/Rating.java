@@ -2,6 +2,7 @@ package sk.tuke.gamestudio.entity;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
@@ -12,14 +13,13 @@ import java.util.Date;
 @NamedQuery(name = "Rating.getRating",
         query = "SELECT r.rating FROM Rating r WHERE r.game=:game AND r.player=:player")
 
-public class Rating {
+public class Rating  implements Serializable {
 
     @Id
-    @GeneratedValue
-    private int ident;
-
     private String game;
+    @Id
     private String player;
+
     private int rating;
     private Date ratedOn;
 
@@ -62,14 +62,6 @@ public class Rating {
 
     public void setRatedOn(Date ratedOn) {
         this.ratedOn = ratedOn;
-    }
-
-    public int getIdent() {
-        return ident;
-    }
-
-    public void setIdent(int ident) {
-        this.ident = ident;
     }
 
     @Override
